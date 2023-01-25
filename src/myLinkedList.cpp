@@ -1,52 +1,63 @@
 #include "myLinkedList.hpp"
+#include <cstdlib>
 
-LinkedList::LinkedList()
+using namespace autocomplete;
+
+template <class T>
+LinkedList<T>::LinkedList()
 {
-    this.first = NULL;
+    this.first = nullptr;
     this.first = this.last;
 }
 
-LinkedList::~LinkedList()
+template <class T>
+LinkedList<T>::~LinkedList()
 {
-    node_t *tmp = this.first;
-    node_t *next = tmp->next;
+    node_t<T> *tmp = this.first;
+    node_t<T> *next = tmp->next;
 
-    while(size > 0)
+    while (tmp->next != nullptr)
     {
-        free(temp);
+        free(tmp);
         tmp = next;
         next = tmp->next;
-        size--;
     }
+
+    free(tmp);
 }
 
-node_t<T> LinkedList::newNode(T key)
+template <class T>
+node_t<T> LinkedList<T>::newNode(T key)
 {
-    node_t *tmp;
-    tmp = malloc(sizeof(node_t<T>));
+    node_t<T> *tmp;
+    tmp = std::malloc(sizeof(tmp));
     tmp->key = key;
     return tmp;
 }
 
-bool LinkedList::find(T key)
+template <class T>
+bool LinkedList<T>::find(T key)
 {
-    node_t *tmp;
+    node_t<T> *tmp;
     tmp = this.first;
 
     while (1)
     {
         if (tmp->key == key)
             return true;
-        else
+        else if (tmp->next != nullptr)
             tmp = tmp->next;
+        else
+            return false;
     }
 }
 
-void LinkedList::insert(T key)
+template <class T>
+void LinkedList<T>::insert(T key)
 {
-    if (this.first == NULL)
+    if (this.first == nullptr)
     {
-        this.first = newNode(key)
+        this.first = newNode(key);
     }
     else if (!find(key))
     {
@@ -55,9 +66,10 @@ void LinkedList::insert(T key)
     }
 }
 
-void LinkedList::delete(T key)
+template <class T>
+void LinkedList<T>::remove(T key)
 {
-    node_t *tmp, *to_remove;
+    node_t<T> *tmp, *to_remove;
     tmp = this.first;
 
     if (this.first->key == key)
@@ -77,7 +89,7 @@ void LinkedList::delete(T key)
                 free(to_remove);
                 break;
             }
-            else if (tmp->next != NULL)
+            else if (tmp->next != nullptr)
             {
                 tmp = tmp->next;
             }
