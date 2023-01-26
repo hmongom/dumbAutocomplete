@@ -1,2 +1,2 @@
-g++ -Iinc -Wall -o test src/*.cpp
+g++ -Iinc -Wall  src/*.cpp -o test
 ./test
