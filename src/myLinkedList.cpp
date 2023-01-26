@@ -1,15 +1,13 @@
 #include "myLinkedList.hpp"
 #include <cstdlib>
 
-namespace autocomplete {
-
-template <class T>
+template <typename T>
 LinkedList<T>::LinkedList() {
     this.first = nullptr;
     this.first = this.last;
 }
 
-template <class T>
+template <typename T>
 LinkedList<T>::~LinkedList() {
     node_t<T> *tmp = this.first;
     node_t<T> *next = tmp->next;
@@ -23,7 +21,7 @@ LinkedList<T>::~LinkedList() {
     free(tmp);
 }
 
-template <class T>
+template <typename T>
 node_t<T> LinkedList<T>::newNode(T key) {
     node_t<T> *tmp;
     tmp = std::malloc(sizeof(tmp));
@@ -31,7 +29,7 @@ node_t<T> LinkedList<T>::newNode(T key) {
     return tmp;
 }
 
-template <class T>
+template <typename T>
 bool LinkedList<T>::find(T key) {
     node_t<T> *tmp;
     tmp = this.first;
@@ -46,7 +44,7 @@ bool LinkedList<T>::find(T key) {
     }
 }
 
-template <class T>
+template <typename T>
 void LinkedList<T>::insert(T key) {
     if (this.first == nullptr)
         this.first = newNode(key);
@@ -56,7 +54,7 @@ void LinkedList<T>::insert(T key) {
     }
 }
 
-template <class T>
+template <typename T>
 void LinkedList<T>::remove(T key) {
     node_t<T> *tmp, *to_remove;
     tmp = this.first;
@@ -83,5 +81,4 @@ void LinkedList<T>::remove(T key) {
             }
         }
     }
-}
 }

@@ -1,8 +1,6 @@
 #include <iostream>
 #include "myLinkedList.hpp"
 
-using namespace autocomplete;
-
 int main() {
     LinkedList<int> myList{};
     myList.insert(1);
