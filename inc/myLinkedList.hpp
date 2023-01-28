@@ -10,7 +10,7 @@ template <typename T> class LinkedList {
 private:
     node_t<T> *first;
     node_t<T> *last;
-    node_t<T> newNode(T key);
+    node_t<T> *newNode(T key);
 public:
     LinkedList();
     ~LinkedList();
@@ -18,5 +18,7 @@ public:
     void insert(T key);
     void remove(T key);
 };
+
+#include "myLinkedList.cpp"
 
 #endif
