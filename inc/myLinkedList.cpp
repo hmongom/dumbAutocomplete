@@ -25,7 +25,7 @@ LinkedList<T>::~LinkedList() {
 template <typename T>
 node_t<T>* LinkedList<T>::newNode(T key) {
     node_t<T> *tmp;
-    tmp = (node_t<T> *)std::malloc(sizeof(tmp));
+    tmp = (node_t<T> *)std::malloc(sizeof(node_t<T>));
     tmp->key = key;
     return tmp;
 }
