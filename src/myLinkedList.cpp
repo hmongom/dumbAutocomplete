@@ -1,5 +1,5 @@
-#include "myLinkedList.hpp"
 #include <cstdlib>
+#include "myLinkedList.hpp"
 
 template <typename T>
 LinkedList<T>::LinkedList() {
