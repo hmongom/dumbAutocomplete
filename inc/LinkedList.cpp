@@ -1,14 +1,14 @@
 #include "LinkedList.hpp"
 
-template <typename T>
-LinkedList<T>::LinkedList() {
+template <typename T, typename U>
+LinkedList<T, U>::LinkedList() {
     head = NULL;
 }
 
-template <typename T>
-LinkedList<T>::~LinkedList() {
-    node_t<T> *tmp = head;
-    node_t<T> *toRemove;
+template <typename T, typename U>
+LinkedList<T, U>::~LinkedList() {
+    container_node_t<T, U> *tmp = head;
+    container_node_t<T, U> *toRemove;
 
     while (tmp != NULL) {
         toRemove = tmp;
@@ -17,17 +17,18 @@ LinkedList<T>::~LinkedList() {
     }
 }
 
-template <typename T>
-void LinkedList<T>::insert(T key) {
-    node_t<T> *newNode = new node_t<T>;
+template <typename T, typename U>
+void LinkedList<T, U>::insert(T key) {
+    container_node_t<T, U> *newNode = new container_node_t<T, U>;
     newNode->key = key;
     newNode->next = head;
+    newNode->content = NULL;
     head = newNode;
 }
 
-template <typename T>
-node_t<T>* LinkedList<T>::getNode(T key) {
-    node_t<T> *tmp = head;
+template <typename T, typename U>
+container_node_t<T, U>* LinkedList<T, U>::getNode(T key) {
+    container_node_t<T, U> *tmp = head;
 
     while (tmp != NULL) {
         if (tmp->key == key) {
@@ -41,10 +42,10 @@ node_t<T>* LinkedList<T>::getNode(T key) {
     return NULL;
 }
 
-template <typename T>
-void LinkedList<T>::remove(T key) {
-    node_t<T> *tmp = head;
-    node_t<T> *prev = tmp;
+template <typename T, typename U>
+void LinkedList<T, U>::remove(T key) {
+    container_node_t<T, U> *tmp = head;
+    container_node_t<T, U> *prev = tmp;
 
     while (tmp != NULL) {
         if (tmp->key == key) {

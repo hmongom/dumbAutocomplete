@@ -1,20 +1,21 @@
 #ifndef AC_INC_LINKEDLIST_H
 #define AC_INC_LINKEDLIST_H
 
-template <typename T> struct node_t {
+template <typename T, typename U> struct container_node_t {
     T key;
-    node_t<T> *next;
+    container_node_t<T, U> *next;
+    U content;
 };
 
-template <typename T> class LinkedList {
+template <typename T, typename U> class LinkedList {
 private:
-    node_t<T> *head;
-    node_t<T> *tail;
+    container_node_t<T, U> *head;
+    container_node_t<T, U> *tail;
 public:
     LinkedList();
     ~LinkedList();
     void insert(T key);
-    node_t<T>* getNode(T key);
+    container_node_t<T, U>* getNode(T key);
     void remove(T key);
 };
 

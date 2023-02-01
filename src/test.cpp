@@ -1,9 +1,18 @@
 #include <iostream>
 #include "LinkedList.hpp"
+#include "Trie.hpp"
+
+void testLinkedList();
+void testTrie();
 
 int main() {
+    //testLinkedList();
+    testTrie();
+}
+
+void testLinkedList() {
     // ************ TEST CONSTRUCTOR ************
-    LinkedList<int> *list = new LinkedList<int>();
+    LinkedList<int, int> *list = new LinkedList<int, int>();
 
     // ************ TEST INSERTION ************
     list->insert(1);
@@ -14,7 +23,7 @@ int main() {
     list->insert(6);
 
     // ************ TEST GET NODE ************
-    node_t<int> *tmp = new node_t<int>();
+    container_node_t<int, int> *tmp = new container_node_t<int, int>();
     if ((tmp = list->getNode(3)) != NULL) {
         std::cout << "Found node with key " << tmp->key << std::endl;
     }
@@ -33,4 +42,8 @@ int main() {
 
     // ************ TEST DESTRUTOR ************
     delete(list);
+}
+
+void testTrie() {
+
 }
