@@ -18,11 +18,11 @@ LinkedList<T, U>::~LinkedList() {
 }
 
 template <typename T, typename U>
-void LinkedList<T, U>::insert(T key) {
+void LinkedList<T, U>::insert(T key, U *content) {
     container_node_t<T, U> *newNode = new container_node_t<T, U>;
     newNode->key = key;
     newNode->next = head;
-    newNode->content = NULL;
+    newNode->content = content;
     head = newNode;
 }
 
@@ -64,4 +64,21 @@ void LinkedList<T, U>::remove(T key) {
             tmp = tmp->next;
         }
     }
+}
+
+template <typename T, typename U>
+bool LinkedList<T, U>::isEmpty() {
+    return head == NULL;
+}
+
+template <typename T, typename U>
+bool LinkedList<T, U>::findKey(T key) {
+    container_node_t<T, U> *tmp = head;
+    while (tmp != NULL) {
+        if (tmp->key == key)
+            return true;
+        else
+            tmp = tmp->next;
+    }
+    return false;
 }

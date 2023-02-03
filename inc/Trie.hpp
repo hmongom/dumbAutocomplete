@@ -8,11 +8,11 @@ using namespace std;
 
 class Trie {
 private:
-    LinkedList<char, string> *root;
-
+    LinkedList<char, Trie> *root;
 public:
-    void addWord(string);
-    string completeWord(string);
+    Trie();
+    ~Trie();
+    void insertWord(string word);
 };
 
 #include "Trie.cpp"
