@@ -25,7 +25,7 @@ string* Trie::getWord(string prefix) {
 
     for (auto &character : prefix) {
         if ((node = tmp->root->getNode(character)) == NULL)
-            return NULL;    // Word not strored
+            return new string(prefix);
         else {
             word->push_back(node->key);
             tmp = node->content;

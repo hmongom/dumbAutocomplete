@@ -7,7 +7,7 @@ void testTrie();
 
 int main() {
     //testLinkedList();
-    testTrie();
+    //testTrie();
 }
 
 void testLinkedList() {
@@ -34,6 +34,7 @@ void testLinkedList() {
 
     // ************ TEST GET NODE ************
     container_node_t<int, std::string> *tmp = new container_node_t<int, std::string>();
+
     if ((tmp = list->getNode(3)) != NULL)
         std::cout << "Found node with key " << tmp->key << "\n";
     else
@@ -41,6 +42,7 @@ void testLinkedList() {
 
     // ************ TEST REMOVE NODE ************
     list->remove(3);
+
     if ((tmp = list->getNode(3)) != NULL)
         std::cout << "Found node with key " << tmp->key << std::endl;
     else

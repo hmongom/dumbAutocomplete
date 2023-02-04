@@ -33,8 +33,7 @@ container_node_t<T, U>* LinkedList<T, U>::getNode(T key) {
 
     if (head->key == key)
         return head;
-    else {
-        tmp = tmp->next; 
+    else { 
         while (tmp != NULL) {
             if (tmp->key == key) {
                 prev->next = tmp->next;
