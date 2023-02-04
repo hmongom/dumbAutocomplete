@@ -27,7 +27,7 @@ void testLinkedList() {
     list->insert(6, new std::string("six"));
 
     // ************ TEST SEARCH KEY ************
-    if (list->findKey(3))
+    if (list->keyExists(3))
         std::cout << "Key found \n";
     else
         std::cout << "Key not found \n";
@@ -56,4 +56,12 @@ void testTrie() {
     // ************ TEST WORD INSERT ************
     trie->insertWord("canario");
     trie->insertWord("canela");
+
+    // ************ TEST GET WORD ************
+    std::cout << *trie->getWord("c") << "\n";
+    std::cout << *trie->getWord("cana") << "\n";
+    std::cout << *trie->getWord("c") << "\n";
+    std::cout << *trie->getWord("cane") << "\n";
+    std::cout << *trie->getWord("la") << "\n";
+    std::cout << *trie->getWord("can") << "\n" << std::endl;
 }

@@ -13,6 +13,7 @@ public:
     Trie();
     ~Trie();
     void insertWord(string word);
+    string* getWord(string prefix);
 };
 
 #include "Trie.cpp"

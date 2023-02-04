@@ -29,13 +29,23 @@ void LinkedList<T, U>::insert(T key, U *content) {
 template <typename T, typename U>
 container_node_t<T, U>* LinkedList<T, U>::getNode(T key) {
     container_node_t<T, U> *tmp = head;
+    container_node_t<T, U> *prev = tmp;
 
-    while (tmp != NULL) {
-        if (tmp->key == key) {
-            return tmp;
-        }
-        else {
-            tmp = tmp->next;
+    if (head->key == key)
+        return head;
+    else {
+        tmp = tmp->next; 
+        while (tmp != NULL) {
+            if (tmp->key == key) {
+                prev->next = tmp->next;
+                tmp->next = head;
+                head = tmp;
+                return head;
+            }
+            else {
+                prev = tmp;
+                tmp = tmp->next;
+            }       
         }
     }
 
@@ -72,7 +82,7 @@ bool LinkedList<T, U>::isEmpty() {
 }
 
 template <typename T, typename U>
-bool LinkedList<T, U>::findKey(T key) {
+bool LinkedList<T, U>::keyExists(T key) {
     container_node_t<T, U> *tmp = head;
     while (tmp != NULL) {
         if (tmp->key == key)
@@ -81,4 +91,9 @@ bool LinkedList<T, U>::findKey(T key) {
             tmp = tmp->next;
     }
     return false;
+}
+
+template <typename T, typename U>
+container_node_t<T, U>* LinkedList<T, U>::getHead() {
+    return head;
 }

@@ -18,7 +18,8 @@ public:
     container_node_t<T, U>* getNode(T key);
     void remove(T key);
     bool isEmpty();
-    bool findKey(T key);
+    bool keyExists(T key);
+    container_node_t<T, U>* getHead();
 };
 
 #include "LinkedList.cpp"
